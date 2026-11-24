@@ -54,19 +54,39 @@ double prumerPredmetu(const int (&z)[STUDENTI][PREDMETY], int predmet) {
     return static_cast<double>(soucet) / jmena.size();
 }
 
+template<typename T>
+int indexMinima(const T pole[], int velikost) {
+    int index = 0;
+    for (int i = 1; i < velikost; i++) {
+        if (pole[i] < pole[index]) {
+            index = i;
+        }
+    }
+    return index;
+}
+
+template<typename T>
+int indexMaxima(const T pole[], int velikost) {
+    int index = 0;
+    for (int i = 1; i < velikost; i++) {
+        if (pole[i] > pole[index]) {
+            index = i;
+        }
+    }
+    return index;
+}
+
 int main() {
     // --- student A ---
     vypisTabulku(znamky);
 
     // --- student B ---
-    // kontrolni vypis prumeru (v casti 2 smazat)
-    std::cout << std::fixed << std::setprecision(2);
+    double prumery[STUDENTI];
     for (size_t s = 0; s < jmena.size(); s++) {
-        std::cout << jmena[s] << ": " << prumerStudenta(znamky, s) << "\n";
+        prumery[s] = prumerStudenta(znamky, s);
     }
-    for (size_t p = 0; p < predmety.size(); p++) {
-        std::cout << predmety[p] << ": " << prumerPredmetu(znamky, p) << "\n";
-    }
+    std::cout << "Nejlepsi: " << jmena[indexMinima(prumery, STUDENTI)] << "\n";
+    std::cout << "Nejhorsi: " << jmena[indexMaxima(prumery, STUDENTI)] << "\n";
 
     return 0;
 }
