@@ -116,6 +116,20 @@ int main() {
         std::cout << "Prvni se sestkou: " << jmena[sestka] << "\n";
     }
 
+    double prumeryPredmetu[PREDMETY];
+    for (size_t p = 0; p < predmety.size(); p++) {
+        prumeryPredmetu[p] = prumerPredmetu(znamky, p);
+    }
+    int poradiPredmetu[PREDMETY] = {0, 1, 2, 3};
+    std::sort(poradiPredmetu, poradiPredmetu + PREDMETY, [&prumeryPredmetu](int a, int b) {
+        return prumeryPredmetu[a] < prumeryPredmetu[b];
+    });
+    std::cout << "Predmety od nejlepsiho:\n";
+    for (int i = 0; i < PREDMETY; i++) {
+        int p = poradiPredmetu[i];
+        std::cout << predmety[p] << " " << prumeryPredmetu[p] << "\n";
+    }
+
     // --- student B ---
     double prumery[STUDENTI];
     for (size_t s = 0; s < jmena.size(); s++) {
