@@ -20,6 +20,21 @@ int znamky[STUDENTI][PREDMETY] = {
 };
 
 // ===== Funkce – student A =====
+void vypisTabulku(const int (&z)[STUDENTI][PREDMETY]) {
+    std::cout << std::setw(8) << "";
+    for (size_t p = 0; p < predmety.size(); p++) {
+        std::cout << std::setw(6) << predmety[p];
+    }
+    std::cout << "\n";
+
+    for (size_t s = 0; s < jmena.size(); s++) {
+        std::cout << std::setw(8) << jmena[s];
+        for (size_t p = 0; p < predmety.size(); p++) {
+            std::cout << std::setw(6) << z[s][p];
+        }
+        std::cout << "\n";
+    }
+}
 
 // ===== Funkce – student B =====
 
@@ -41,6 +56,7 @@ double prumerPredmetu(const int (&z)[STUDENTI][PREDMETY], int predmet) {
 
 int main() {
     // --- student A ---
+    vypisTabulku(znamky);
 
     // --- student B ---
     // kontrolni vypis prumeru (v casti 2 smazat)
