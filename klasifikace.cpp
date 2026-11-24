@@ -111,7 +111,7 @@ int main() {
 
     int sestka = prvniStudentSeZnamkou(znamky, 6);
     if (sestka == -1) {
-        std::cout << "Sestku nema nikdo\n";
+        std::cout << "Sestku nema nigdo\n";
     } else {
         std::cout << "Prvni se sestkou: " << jmena[sestka] << "\n";
     }
