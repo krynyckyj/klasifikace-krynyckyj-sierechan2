@@ -1,0 +1,1 @@
+# klasifikace-krynyckyj-sierechan2
