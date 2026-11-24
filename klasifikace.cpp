@@ -124,5 +124,15 @@ int main() {
     std::cout << "Nejlepsi: " << jmena[indexMinima(prumery, STUDENTI)] << "\n";
     std::cout << "Nejhorsi: " << jmena[indexMaxima(prumery, STUDENTI)] << "\n";
 
+    int poradi[STUDENTI] = {0, 1, 2, 3, 4, 5};
+    std::sort(poradi, poradi + STUDENTI, [&prumery](int a, int b) {
+        return prumery[a] < prumery[b];
+    });
+    std::cout << "Poradi tridy:\n";
+    std::cout << std::fixed << std::setprecision(2);
+    for (int i = 0; i < STUDENTI; i++) {
+        std::cout << i + 1 << ". " << jmena[poradi[i]] << " (" << prumery[poradi[i]] << ")\n";
+    }
+
     return 0;
 }
