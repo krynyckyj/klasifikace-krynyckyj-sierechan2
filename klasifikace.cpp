@@ -20,11 +20,29 @@ int znamky[STUDENTI][PREDMETY] = {
 };
 
 // ===== Funkce – student A =====
+void vypisTabulku(const int (&z)[STUDENTI][PREDMETY]) {
+    // zahlavi: prazdne misto pro jmena a zkratky predmetu
+    std::cout << std::setw(8) << "";
+    for (size_t p = 0; p < predmety.size(); p++) {
+        std::cout << std::setw(6) << predmety[p];
+    }
+    std::cout << "\n";
+
+    // radek pro kazdeho studenta: jmeno a jeho znamky
+    for (size_t s = 0; s < jmena.size(); s++) {
+        std::cout << std::setw(8) << jmena[s];
+        for (size_t p = 0; p < predmety.size(); p++) {
+            std::cout << std::setw(6) << z[s][p];
+        }
+        std::cout << "\n";
+    }
+}
 
 // ===== Funkce – student B =====
 
 int main() {
     // --- student A ---
+    vypisTabulku(znamky);
 
     // --- student B ---
 
